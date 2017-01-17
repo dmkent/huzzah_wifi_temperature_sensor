@@ -32,7 +32,14 @@ def fetch_and_publish():
                    )
     client.disconnect()
 
-fetch_and_publish()
+try:
+    fetch_and_publish()
+except Exception as thrown:
+    # Handle errors, most likely network, this will just keep us on going to sleep
+    # if we leave unhandled we never sleep and battery will die...
+
+    # makes debug easier if printed to serial.
+    print(thrown)
 
 if config['period'] is not None:
     sleep(config['period'])
