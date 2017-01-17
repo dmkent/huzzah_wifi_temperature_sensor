@@ -1,0 +1,16 @@
+{
+    "wifi": {
+        "ssid": "<wifi_ssis>",
+        "password": "<wifi_pass>",
+    },
+    "mqtt": {
+        "broker": {
+            "server": "<mqtt_broker_address>"
+        },
+        "topic": "portable/node2",
+        "client_id": "upy_esp8266"
+    },
+    "period": 30,
+    "webrepl": true,
+    "debug": false
+}
