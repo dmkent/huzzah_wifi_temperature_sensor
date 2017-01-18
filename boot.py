@@ -26,8 +26,16 @@ def do_connect():
         print('connecting to network...')
         sta_if.active(True)
         sta_if.connect(ssid, password)
-        while not sta_if.isconnected():
-            pass
-    print('network config:', sta_if.ifconfig())
+        while True:
+            status = sta_if.status()
+            if status == network.STAT_CONNECTING:
+                pass
+            elif status == network.STAT_GOT_IP:
+                print('network config:', sta_if.ifconfig())
+                break
+            else:
+                # failed
+                print('unable to connect to network')
+                break
 
 do_connect()
